@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+    <title>Seatwork 2</title>
+    <h1>Grade 10 Classmate System</h1>
+    <p>Add and view your classmates easily.</p>
+    <form>
+        <input type="text" id="name" placeholder=""><br>
+        <input type="text" id="section" placeholder=""><br>
+        <input type="text" id="subject" placeholder=""><br>
+        <input type="button" py-click="add_classmate" value="add Classmate">
+        <input type="button" py-click="show_list" value="show list">
+    </form>
+     <div id="output"></div>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
