@@ -29,7 +29,7 @@ def show_list(e):
 def add_classmate(e):
     name= document.getElementById("name").value
     section = document.getElementById("section").value
-    subject = document.getElementById("subject").value
+    subject = document.getElementById("favsub").value
 
     diction = {
         "name":name,
