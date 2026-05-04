@@ -5,12 +5,9 @@ class Classmate:
         self.name = name
         self.section = section
         self.favorite_subject = favorite_subject
-
     def introduce(self):
         return f"Hi! I am {self.name} from {self.section}. My favorite subject is {self.favorite_subject}."
 
-
-# Initial classmates
 classmates = [
     Classmate("Renzo", "Topaz", "Cat"),
     Classmate("Jalainie", "Topaz", "PE"),
@@ -19,25 +16,23 @@ classmates = [
     Classmate("Alejandro", "Topaz", "PE"),
 ]
 
+def clear_output():
+    document.getElementById("output").innerHTML = ""
 
 def show_list(e):
+    clear_output()  
     for cm in classmates:
-        display(cm.introduce(), target="output")
-  
-
+        display(cm.introduce(), target="output", append=True)
 
 def add_classmate(e):
-    name= document.getElementById("name").value
+    name = document.getElementById("name").value
     section = document.getElementById("section").value
     subject = document.getElementById("favsub").value
 
-    diction = {
-        "name":name,
-        "section":section,
-        "favorite_subject":subject
-    }
-    new_classmate = Classmate(**diction)
+    new_classmate = Classmate(name, section, subject)
     classmates.append(new_classmate)
-    display("classmate added succesfully", target='output')
+
+    clear_output()  
+    display("classmate added successfully", target="output", append=True)
 
 
