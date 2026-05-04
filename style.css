@@ -17,3 +17,10 @@ form {
 .col-md-3{
     background-color: #44CF6C;
 }
+.footer {
+    background-color: #1e7e34;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
