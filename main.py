@@ -1,4 +1,4 @@
-from pyscript import display, document
+from pyscript import document
 
 class Classmate:
     def __init__(self, name, section, favorite_subject):
@@ -16,23 +16,25 @@ classmates = [
     Classmate("Alejandro", "Topaz", "PE"),
 ]
 
-def clear_output():
-    document.getElementById("output").innerHTML = ""
+def render_list():
+    output = document.getElementById("output")
+    output.innerHTML = "".join(f"<p>{cm.introduce()}</p>" for cm in classmates)
 
 def show_list(e):
-    clear_output()  
-    for cm in classmates:
-        display(cm.introduce(), target="output", append=True)
+    render_list()  # always replaces, never appends
 
 def add_classmate(e):
     name = document.getElementById("name").value
     section = document.getElementById("section").value
     subject = document.getElementById("favsub").value
 
-    new_classmate = Classmate(name, section, subject)
-    classmates.append(new_classmate)
+    classmates.append(Classmate(name, section, subject))
 
-    clear_output()  
-    display("classmate added successfully", target="output", append=True)
+    # Clear the input fields
+    document.getElementById("name").value = ""
+    document.getElementById("section").value = ""
+    document.getElementById("favsub").value = ""
+
+    render_list()  # show updated list immediately, no duplicates
 
 
